@@ -1,0 +1,27 @@
+button {
+    background-color: #4CAF50;
+    color: white;
+    border-style: none;
+    padding: 5px 5px;
+    width:35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color:#C8E6C9;
+ }
+ .table th {
+    background-color: #02838F; /* Replace with your preferred header background color */
+    color: #fff; /* Set the text color for better contrast */
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+ 
+ 
