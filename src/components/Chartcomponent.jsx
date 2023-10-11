@@ -157,10 +157,11 @@ const Chartcomponent = () => {
                     },
                 },
             },
+
             series: [
                 {
-                    name: name[0],
-
+                    // name: name[0],
+                    name: 'แผนรับ',
                     data: chartData.map(item => ({ name: item.name, y: item.plan })),
 
                 },
@@ -208,7 +209,7 @@ const Chartcomponent = () => {
                             <div className="col-lg-6 col-md">
                                 <div className="card text-center">
                                     <div className="card-body bg-success text-light">
-                                        <h5 className="card-title">CF</h5>
+                                        <h5 className="card-title">Cf</h5>
                                         <h3 className="card-text">{masterData.confirm.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="btn btn-light shadow">{masterData.percentConfirm.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>

@@ -19,7 +19,7 @@ function DataTable({ data }) {
                 accessor: 'applicant',
             },
             {
-                Header: 'CF',
+                Header: 'Cf',
                 accessor: 'confirm',
             },
             {
