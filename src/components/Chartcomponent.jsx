@@ -60,7 +60,7 @@ const Chartcomponent = () => {
         percentConfirm: 0.00,
         percentReport: 0.00,
     });
-
+    const [nameClicked, setNameClicked] = useState('');
 
 
 
@@ -126,15 +126,14 @@ const Chartcomponent = () => {
                         formatter: function () {
                             return '<p style="font-size: 14px; font-family: Prompt, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
                         }
-                        // format: `<p: style='font-size:14px;font-family:"Mitr",sans-serif;'>{point.name}: {Highchart.numberFormat(point.y,0,'.',',')} คน </p> `,
-                        // '<p style="font-size: 14px; font-family: Mitr, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
+
                     },
                     point: {
                         events: {
                             click: function () {
                                 // The 'this' keyword refers to the clicked point
                                 const clickedName = this.name;
-
+                                setNameClicked(clickedName);
                                 // Filter your data based on the clickedName
                                 const filteredData = chartData.filter(item => item.name === clickedName);
                                 setFacultyID(filteredData[0].id);
@@ -174,10 +173,12 @@ const Chartcomponent = () => {
     return (
         <div className='main'>
             <div id="chart-container">
+
             </div>
             <div className="container mt-2">
 
                 <div className="row">
+                    <h3 className='text-center'>{nameClicked}</h3>
                     <div className="col-lg-8 col-md-12 col-sm">
                         <DataTable data={dataTable} />
 

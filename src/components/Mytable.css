@@ -1,6 +1,6 @@
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ffcc00;
+    color: #000;
     border-style: none;
     padding: 5px 5px;
     width:35px;
@@ -10,6 +10,8 @@ button {
     display: flex;
     border-radius: 50%;
     margin: 10px;
+    box-shadow: 0 0 10px #ccc;
+    transition: .3s ease-in-out;
 }
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
@@ -22,6 +24,17 @@ button {
 
   .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: .3s ease-in-out;
+    margin:5px;
   }
  
- 
+  .card:hover {
+    cursor: pointer;
+    box-shadow: 4px 8px 16px 4px rgba(0,0,0,0.4);
+    scale: 1.1;
+  }
+
+  button:hover{
+    scale: 1.1;
+    opacity: 0.8;
+  }
