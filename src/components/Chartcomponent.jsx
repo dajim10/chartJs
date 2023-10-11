@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Highcharts, { numberFormat } from 'highcharts';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
-import MyTable from './Mytable';
+import DataTable from './DataTable';
 import './Mytable.css';
 const columns = [
 
@@ -179,7 +179,7 @@ const Chartcomponent = () => {
 
                 <div className="row">
                     <div className="col-lg-8 col-md-12 col-sm">
-                        <MyTable data={dataTable} />
+                        <DataTable data={dataTable} />
 
                     </div>
                     <div className="col-lg-4 col-md-12 col-sm">

@@ -3,7 +3,7 @@ import { useTable, useSortBy, usePagination } from 'react-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faCaretLeft, faForward, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
-function MyTable({ data }) {
+function DataTable({ data }) {
     const columns = React.useMemo(
         () => [
             {
@@ -147,4 +147,4 @@ function MyTable({ data }) {
     );
 }
 
-export default MyTable;
+export default DataTable;
