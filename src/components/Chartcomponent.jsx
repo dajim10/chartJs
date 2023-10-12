@@ -1,49 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Highcharts, { numberFormat } from 'highcharts';
-import Box from '@mui/material/Box';
-import { DataGrid } from '@mui/x-data-grid';
 import DataTable from './DataTable';
 import './Mytable.css';
-const columns = [
 
-    {
-        field: 'name',
-        headerName: 'หลักสูตร',
-        width: 300,
-        editable: true,
-    },
-    {
-        field: 'plan',
-        headerName: 'แผนรับ',
-        type: 'number',
-        width: 50,
-        editable: true,
-    },
-    {
-        field: 'applicant',
-        headerName: 'สมัคร',
-        type: 'number',
-        width: 50,
-        editable: true,
-    },
-    {
-        field: 'confirm',
-        headerName: 'Cf',
-        sortable: false,
-        width: 50,
-    },
-    {
-        field: 'report',
-        headerName: 'Stu.i',
-        sortable: false,
-        width: 50,
-    },
-
-];
-
-
-
-// rows.push({ id: 1, name: 'test', plan: 1, applicant: 1, confirm: 1, report: 1 });
 
 const Chartcomponent = () => {
     const [chartData, setChartData] = useState([]);
@@ -179,7 +138,7 @@ const Chartcomponent = () => {
             <div className="container mt-2">
 
                 <div className="row">
-                    <h3 className='text-center'>{nameClicked}</h3>
+                    <h3 className='text-center percent-number-pretty'>{nameClicked}</h3>
                     <div className="col-lg-8 col-md-12 col-sm">
                         <DataTable data={dataTable} />
 
@@ -190,18 +149,18 @@ const Chartcomponent = () => {
                                 <div className="card text-center">
                                     <div className="card-body bg-primary text-light">
                                         <h5 className="card-title">แผนรับ</h5>
-                                        <h3 className="card-text">{masterData.plan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                        <h3 className="percent-number-pretty">{masterData.plan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
-                                        <p className='btn btn-light shadow'>{masterData.percentPlan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                        <p className=''>{masterData.percentPlan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                                     </div>
 
                                 </div>
                                 <div className="card text-center">
                                     <div className="card-body bg-warning text-dark">
                                         <h5 className="card-title">สมัคร</h5>
-                                        <h3 className="card-text">{masterData.applicant.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                        <h3 className="percent-number-pretty">{masterData.applicant.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
-                                        <p className="btn btn-dark shadow">{masterData.percentApplicant.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        <p>{masterData.percentApplicant.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
                                     </div>
                                 </div>
 
@@ -210,15 +169,15 @@ const Chartcomponent = () => {
                                 <div className="card text-center">
                                     <div className="card-body bg-success text-light">
                                         <h5 className="card-title">Cf</h5>
-                                        <h3 className="card-text">{masterData.confirm.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                        <h3 className="percent-number-pretty">{masterData.confirm.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
-                                        <p className="btn btn-light shadow">{masterData.percentConfirm.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        <p>{masterData.percentConfirm.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
                                     </div>
                                 </div>
                                 <div className="card text-center">
                                     <div className="card-body bg-danger text-light">
                                         <h5 className="card-title">Stu.i</h5>
-                                        <h3 className="card-text">{masterData.report.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                        <h3 className="percent-number-pretty">{masterData.report.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="btn btn-dark shadow">{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
                                     </div>

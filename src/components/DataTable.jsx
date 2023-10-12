@@ -1,30 +1,50 @@
 import React from 'react';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBackward, faCaretLeft, faForward, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { faBackward, faCaretLeft, faForward, faCaretRight, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 
 function DataTable({ data }) {
     const columns = React.useMemo(
         () => [
             {
-                Header: 'หลักสูตร',
+                Header: () => (<div className="text-center">หลักสูตร</div>),
                 accessor: 'name',
             },
             {
-                Header: 'แผนรับ',
+                Header: () => (<div className="text-center">แผนรับ</div>),
                 accessor: 'plan',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div style={{ textAlign: 'right' }}>{value}</div>
+                    )
+                }
             },
             {
-                Header: 'สมัคร',
+                Header: () => (<div className="text-center">สมัคร</div>),
                 accessor: 'applicant',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div style={{ textAlign: 'right' }}>{value}</div>
+                    )
+                }
             },
             {
-                Header: 'Cf',
+                Header: () => (<div className="text-center">Cf</div>),
                 accessor: 'confirm',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div style={{ textAlign: 'right' }}>{value}</div>
+                    )
+                }
             },
             {
                 Header: 'Stu.i',
                 accessor: 'report',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div style={{ textAlign: 'right' }}>{value}</div>
+                    )
+                }
             },
         ],
         []
@@ -83,7 +103,7 @@ function DataTable({ data }) {
                             <tr {...row.getRowProps()}>
                                 {row.cells.map(cell => {
                                     return (
-                                        <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                        <td {...cell.getCellProps()} >{cell.render('Cell')}</td>
                                     );
                                 })}
                             </tr>
