@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTable, useSortBy, usePagination } from 'react-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBackward, faCaretLeft, faForward, faCaretRight, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
+import { faBackward, faCaretLeft, faForward, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 function DataTable({ data }) {
     const columns = React.useMemo(

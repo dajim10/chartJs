@@ -3,6 +3,8 @@ import Chartcomponent from './components/Chartcomponent'
 import './App.css'
 import Logo from './assets/LOGO-RUTS-10.png'
 
+
+
 // import BarChart from './components/PieChart'
 
 const App = () => {
@@ -38,7 +40,6 @@ const App = () => {
                 <div className="col">
 
                     <Chartcomponent />
-
                 </div>
 
             </div>

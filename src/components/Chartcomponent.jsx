@@ -3,7 +3,8 @@ import Highcharts, { numberFormat } from 'highcharts';
 import DataTable from './DataTable';
 import './Mytable.css';
 import ShareThisPage from './ShareThisPage';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 
 
 const Chartcomponent = () => {
@@ -27,6 +28,8 @@ const Chartcomponent = () => {
 
 
     useEffect(() => {
+
+
 
         fetch('https://stdreport.rmutsv.ac.th/json')
             .then(response => response.json())
@@ -149,11 +152,15 @@ const Chartcomponent = () => {
             <div className="container mt-2">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb bg-dark text-light p-2 rounded-pill justify-content-center align-items-center">
-                        <li className="breadcrumb-item ms-auto" aria-current="page">
-                            Home
+                        <li className="breadcrumb-item" aria-current="page">
+                            <button className='btn btn-primary mx-2 rounded-pill'
+                                onClick={() => window.location.reload()}
+                            >
+                                <FontAwesomeIcon icon={faArrowsRotate} />
+                            </button>
                         </li>
 
-                        <li className="breadcrumb-item bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
+                        <li className=" bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
                         </li>
                     </ol>
                 </nav>
