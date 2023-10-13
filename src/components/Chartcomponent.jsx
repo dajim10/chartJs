@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Highcharts, { numberFormat } from 'highcharts';
 import DataTable from './DataTable';
 import './Mytable.css';
+import ShareThisPage from './ShareThisPage';
 
 
 
@@ -165,6 +166,14 @@ const Chartcomponent = () => {
 
                     </div>
                     <div className="col-lg-4 col-md-12 col-sm">
+                        <div className="row">
+                            <div className="col d-flex justify-content-around align-item-center">
+                                <h4>Social Share</h4>
+                                <ShareThisPage />
+
+
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="col-lg-6 col-md">
                                 <div className="card text-center">

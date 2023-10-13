@@ -4,6 +4,11 @@ import {
     TwitterShareButton,
 } from 'react-share';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebook } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+
+
 const ShareThisPage = () => {
     // Define the URL of the current page
     const currentPageUrl = 'https://stdreport.rmutsv.ac.th/';
@@ -13,20 +18,21 @@ const ShareThisPage = () => {
     const shareMessage = 'Check out this awesome page!';
 
     // URL of the image you want to include in the Facebook share preview
-    const imagePreviewUrl = 'https://img-ha.mthcdn.com/lZMK6eDFIHgwFTrl5Luyc7NQ2fI=/mthai.com/app/uploads/2023/10/315848816_511683717675027_6592604874130095887_n.jpg';
+    const imagePreviewUrl = 'https://www.rmutsv.ac.th/ruts/wp-content/uploads/2023/10/previewImg.png';
 
     return (
         <div>
-            <h2>Share This Page</h2>
+
             <FacebookShareButton
                 url={currentPageUrl}
                 quote={shareMessage}
                 picture={imagePreviewUrl} // Include the image URL
             >
-                Share on Facebook
+                <FontAwesomeIcon icon={faFacebook} size="2x" className='text-primary' />
             </FacebookShareButton>
             <TwitterShareButton url={currentPageUrl} title={shareMessage}>
-                Share on Twitter
+                <FontAwesomeIcon icon={faXTwitter} size="2x" />
+
             </TwitterShareButton>
             {/* Add more share buttons for other platforms as needed */}
         </div>

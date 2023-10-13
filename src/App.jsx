@@ -2,7 +2,7 @@ import React from 'react'
 import Chartcomponent from './components/Chartcomponent'
 import './App.css'
 import Logo from './assets/LOGO-RUTS-10.png'
-import ShareThisPage from './components/ShareThisPage'
+
 // import BarChart from './components/PieChart'
 
 const App = () => {
@@ -38,7 +38,7 @@ const App = () => {
                 <div className="col">
 
                     <Chartcomponent />
-                    <ShareThisPage />
+
                 </div>
 
             </div>

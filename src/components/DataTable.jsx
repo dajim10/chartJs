@@ -114,16 +114,16 @@ function DataTable({ data }) {
             <div className="row d-flex justify-content-between align-items-center">
                 <div className="col-lg-6 col-md-12 col-sm pb-3">
                     <div className="pagination">
-                        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                        <button className="button-control" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                             <FontAwesomeIcon icon={faBackward} />
                         </button>{' '}
-                        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+                        <button className="button-control" onClick={() => previousPage()} disabled={!canPreviousPage}>
                             <FontAwesomeIcon icon={faCaretLeft} />
                         </button>{' '}
-                        <button onClick={() => nextPage()} disabled={!canNextPage}>
+                        <button className="button-control" onClick={() => nextPage()} disabled={!canNextPage}>
                             <FontAwesomeIcon icon={faCaretRight} />
                         </button>{' '}
-                        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+                        <button className="button-control" onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
                             <FontAwesomeIcon icon={faForward} />
                         </button>{' '}
 
