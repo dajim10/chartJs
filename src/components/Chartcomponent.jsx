@@ -4,6 +4,7 @@ import DataTable from './DataTable';
 import './Mytable.css';
 
 
+
 const Chartcomponent = () => {
     const [chartData, setChartData] = useState([]);
     const [facultyID, setFacultyID] = useState();
@@ -20,7 +21,7 @@ const Chartcomponent = () => {
         percentReport: 0.00,
     });
     const [nameClicked, setNameClicked] = useState('');
-
+    const [divStyle, setDivStyle] = useState({});
 
 
 
@@ -74,10 +75,17 @@ const Chartcomponent = () => {
             chart: {
                 type: 'pie',
             },
+            colors: [
+                '#7cb5ec', '#eee', '#90ed7d', '#f7a35c',
+                '#ffcc00', '#f15c80', '#e4d354', '#8085e8',
+                '#8d4653', '#91e8e1', '#90ee3e', '#e2e',
+                '#141513', '#00154b', '#ff0000'
+            ],
             title: {
                 text: ''
                 // text: `<h3 style='font-family:"Prompt",sans-serif;'>รายงานข้อมูลนักศึกษาใหม่ปีการศึกษา 2567</h3>`,
             },
+
             plotOptions: {
                 pie: {
                     dataLabels: {
@@ -93,6 +101,10 @@ const Chartcomponent = () => {
                                 // The 'this' keyword refers to the clicked point
                                 const clickedName = this.name;
                                 setNameClicked(clickedName);
+                                const chartColors = Highcharts.getOptions().colors;
+                                const ColorBranch = chartColors[this.index];
+                                setDivStyle({ backgroundColor: ColorBranch });
+                                console.log(chartColors[this.index]);
                                 // Filter your data based on the clickedName
                                 const filteredData = chartData.filter(item => item.name === clickedName);
                                 setFacultyID(filteredData[0].id);
@@ -108,9 +120,7 @@ const Chartcomponent = () => {
                                     percentReport: filteredData[0].report / filteredData[0].plan * 100,
 
                                 })
-                                // Do something with the filteredData (e.g., update state or perform other actions)
-                                console.log(facultyID);
-                                console.log(dataTable)
+
                             },
                         },
                     },
@@ -136,9 +146,20 @@ const Chartcomponent = () => {
 
             </div>
             <div className="container mt-2">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb bg-dark text-light p-2 rounded-pill justify-content-center align-items-center">
+                        <li className="breadcrumb-item ms-auto" aria-current="page">
+                            Home
+                        </li>
+
+                        <li className="breadcrumb-item bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
+                        </li>
+                    </ol>
+                </nav>
+
 
                 <div className="row">
-                    <h3 className='text-center percent-number-pretty'>{nameClicked}</h3>
+
                     <div className="col-lg-8 col-md-12 col-sm">
                         <DataTable data={dataTable} />
 
@@ -179,7 +200,7 @@ const Chartcomponent = () => {
                                         <h5 className="card-title">Stu.i</h5>
                                         <h3 className="percent-number-pretty">{masterData.report.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
                                         <p>ร้อยละของแผนรับ</p>
-                                        <p className="btn btn-dark shadow">{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        <p>{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
                                     </div>
                                 </div>
                             </div>
