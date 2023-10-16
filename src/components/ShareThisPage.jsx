@@ -2,11 +2,14 @@ import React from 'react';
 import {
     FacebookShareButton,
     TwitterShareButton,
+    LineShareButton,
+
+
 } from 'react-share';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faFacebook } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faXTwitter, faLine } from '@fortawesome/free-brands-svg-icons';
 
 
 const ShareThisPage = () => {
@@ -31,9 +34,12 @@ const ShareThisPage = () => {
                 <FontAwesomeIcon icon={faFacebook} size="2x" className='text-primary' />
             </FacebookShareButton>
             <TwitterShareButton url={currentPageUrl} title={shareMessage}>
-                <FontAwesomeIcon icon={faXTwitter} size="2x" />
+                <FontAwesomeIcon icon={faXTwitter} size="2x" className='mx-2' />
 
             </TwitterShareButton>
+            <LineShareButton url={currentPageUrl} title={shareMessage}>
+                <FontAwesomeIcon icon={faLine} size="2x" className='text-success' />
+            </LineShareButton>
             {/* Add more share buttons for other platforms as needed */}
         </div>
     );

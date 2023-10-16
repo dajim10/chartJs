@@ -59,7 +59,7 @@ tbody tr:nth-child(){
     background-color: #fff;
     color:#000;
     border-radius:15px;
-    box-shadow: 0 0 10px #ccc;
+    /* box-shadow: 0 0 10px #ccc; */
     margin-bottom: 1.5rem;
 }
 
