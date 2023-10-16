@@ -68,18 +68,20 @@ const Chartcomponent = () => {
     {
         facultyID ?
             useEffect(() => {
-
                 fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
-            }, [facultyID]) :
+            }, [facultyID])
+
+            :
             useEffect(() => {
                 fetch(`https://ars.rmutsv.ac.th/json/`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
-            }, [dataTable])
+            }, [])
+
     }
 
     useEffect(() => {

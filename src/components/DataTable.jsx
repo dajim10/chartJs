@@ -50,6 +50,8 @@ function DataTable({ data }) {
         []
     );
 
+
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -74,6 +76,8 @@ function DataTable({ data }) {
         useSortBy,
         usePagination
     );
+
+
 
     return (
         <div className='container'>
