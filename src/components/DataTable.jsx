@@ -11,7 +11,7 @@ function DataTable({ data }) {
                 accessor: 'name',
             },
             {
-                Header: () => (<div className="text-center">แผนรับ</div>),
+                Header: () => (<div className="text-start">แผนรับ</div>),
                 accessor: 'plan',
                 Cell: ({ cell: { value } }) => {
                     return (
@@ -20,7 +20,7 @@ function DataTable({ data }) {
                 }
             },
             {
-                Header: () => (<div className="text-center">สมัคร</div>),
+                Header: () => (<div className="text-end">สมัคร</div>),
                 accessor: 'applicant',
                 Cell: ({ cell: { value } }) => {
                     return (
@@ -29,7 +29,7 @@ function DataTable({ data }) {
                 }
             },
             {
-                Header: () => (<div className="text-center">Cf</div>),
+                Header: () => (<div className="text-end">Cf</div>),
                 accessor: 'confirm',
                 Cell: ({ cell: { value } }) => {
                     return (
