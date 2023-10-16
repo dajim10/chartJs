@@ -43,7 +43,7 @@ const Chartcomponent = () => {
 
 
 
-        fetch('https://stdreport.rmutsv.ac.th/json')
+        fetch('https://ars.rmutsv.ac.th/json')
             .then(response => response.json())
             .then(data => {
                 setMasterData({
