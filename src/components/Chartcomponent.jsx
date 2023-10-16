@@ -21,7 +21,7 @@ const Chartcomponent = () => {
     // Combine the components to form the date string
     const formattedDate = `${day}/${month}/${year} เวลา ${time} น.`;
     const [chartData, setChartData] = useState([]);
-    const [facultyID, setFacultyID] = useState();
+    const [facultyID, setFacultyID] = useState('');
     const [dataTable, setDataTable] = useState([]);
     const [masterData, setMasterData] = useState({
         facultyName: '',
@@ -65,24 +65,44 @@ const Chartcomponent = () => {
 
     }, []);
 
-    {
-        facultyID ?
-            useEffect(() => {
-                fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
-                    .then(response => response.json())
-                    .then(data => setDataTable(data.program))
-                    .catch(error => console.log(error))
-            }, [facultyID])
+    // {
+    //     facultyID ?
+    //         useEffect(() => {
+    //             fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+    //                 .then(response => response.json())
+    //                 .then(data => setDataTable(data.program))
+    //                 .catch(error => console.log(error))
+    //         }, [facultyID])
 
-            :
-            useEffect(() => {
-                fetch(`https://ars.rmutsv.ac.th/json/`)
-                    .then(response => response.json())
-                    .then(data => setDataTable(data.program))
-                    .catch(error => console.log(error))
-            }, [])
+    //         :
+    //         useEffect(() => {
+    //             fetch(`https://ars.rmutsv.ac.th/json/`)
+    //                 .then(response => response.json())
+    //                 .then(data => setDataTable(data.program))
+    //                 .catch(error => console.log(error))
+    //         }, [])
 
-    }
+    // }
+    useEffect(() => {
+        // This effect fetches data when facultyID is an empty string (initial load)
+        if (!facultyID) {
+            fetch(`https://ars.rmutsv.ac.th/json/`)
+                .then(response => response.json())
+                .then(data => setDataTable(data.program))
+                .catch(error => console.log(error))
+        }
+    }, [facultyID]);
+
+    // The existing effect for fetching data when facultyID is set
+    useEffect(() => {
+        if (facultyID) {
+            fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+                .then(response => response.json())
+                .then(data => setDataTable(data.program))
+                .catch(error => console.log(error))
+        }
+    }, [facultyID]);
+
 
     useEffect(() => {
         const name = chartData.map(item => item.name);
