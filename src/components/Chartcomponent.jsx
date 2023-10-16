@@ -5,9 +5,21 @@ import './Mytable.css';
 import ShareThisPage from './ShareThisPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../assets/LOGO-RUTS-10.png'
+
 
 
 const Chartcomponent = () => {
+    const currentDate = new Date();
+
+    // Get day, month, and year components
+    const day = currentDate.getDate().toString().padStart(2, '0');
+    const month = (currentDate.getMonth()).toString().padStart(2, '0'); // Months are 0-based
+    const year = currentDate.getFullYear();
+    const time = currentDate.toLocaleTimeString();
+
+    // Combine the components to form the date string
+    const formattedDate = `${day}/${month}/${year} เวลา ${time} น.`;
     const [chartData, setChartData] = useState([]);
     const [facultyID, setFacultyID] = useState();
     const [dataTable, setDataTable] = useState([]);
@@ -95,7 +107,7 @@ const Chartcomponent = () => {
                     dataLabels: {
                         enabled: true,
                         formatter: function () {
-                            return '<p style="font-size: 14px; font-family: Prompt, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
+                            return '<p style="font-size: 14px; font-family: Sarabun, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
                         }
 
                     },
@@ -145,82 +157,110 @@ const Chartcomponent = () => {
 
 
     return (
-        <div className='main'>
-            <div id="chart-container">
+        <div className="container mt-2">
+            <div className="row ">
+                <div className="col-lg-9 col-md-12 col-sm">
+                    <h3 className='text-center color-ruts bg-warning rounded-pill shadow'>รายงานข้อมูลนักศึกษาใหม่ปีการศึกษา {year + 544} </h3>
+                    <small style={{ float: 'right' }}>ข้อมูล ณ.วันที่ {formattedDate}</small>
 
-            </div>
-            <div className="container mt-2">
-                <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb bg-dark text-light p-2 rounded-pill justify-content-center align-items-center">
-                        <li className="breadcrumb-item" aria-current="page">
-                            <button className='btn btn-primary mx-2 rounded-pill'
-                                onClick={() => window.location.reload()}
-                            >
-                                <FontAwesomeIcon icon={faArrowsRotate} />
-                            </button>
-                        </li>
+                </div>
+                <div className="col-lg-3 col-md-12 col-sm">
+                    <div className="text-center">
 
-                        <li className=" bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
-                        </li>
-                        <div className='bg-light rounded-pill text-dark  p-2 ms-auto'>
-                            <ShareThisPage />
-
-                        </div>
-                    </ol>
-                </nav>
-
-
-                <div className="row">
-
-                    <div className="col-lg-8 col-md-12 col-sm">
-                        <DataTable data={dataTable} />
+                        <img src={Logo} alt="logo" width={200} id="logo" />
 
                     </div>
-                    <div className="col-lg-4 col-md-12 col-sm">
-                        <div className="row">
-                            {/* <div className="col d-flex justify-content-around align-item-center">
+                </div>
+                <div className='d-flex justify-content-between align-items-center'>
+                    {/* <ExportToJPG /> */}
+                </div>
+            </div>
+            <div className="row">
+                <div className="col">
+                    {/* <ExportToJPG /> */}
+                    {/* <Chartcomponent /> */}
+                </div>
+
+            </div>
+
+            {/* <BarChart /> */}
+            <div className='main'>
+                <div id="chart-container">
+
+                </div>
+                <div className="container mt-2">
+                    <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb bg-dark text-light p-2 rounded-pill justify-content-center align-items-center">
+                            <li className="breadcrumb-item" aria-current="page">
+                                <button className='btn btn-primary mx-2 rounded-pill'
+                                    onClick={() => window.location.reload()}
+                                >
+                                    <FontAwesomeIcon icon={faArrowsRotate} />
+                                </button>
+                            </li>
+
+                            <li className=" bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
+                            </li>
+                            <div className='bg-light rounded-pill text-dark  p-2 ms-auto'>
+                                <ShareThisPage />
+                                {/* <ExportToJPG /> */}
+                            </div>
+                        </ol>
+                    </nav>
+
+
+                    <div className="row">
+
+                        <div className="col-lg-8 col-md-12 col-sm">
+                            <DataTable data={dataTable} />
+
+                        </div>
+                        <div className="col-lg-4 col-md-12 col-sm">
+                            <div className="row">
+                                {/* <div className="col d-flex justify-content-around align-item-center">
                                 <h4>Social Share</h4>
                                 <ShareThisPage />
 
 
                             </div> */}
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-6 col-md">
-                                <div className="card text-center">
-                                    <div className="card-body bg-primary text-light">
-                                        <h5 className="card-title">แผนรับ</h5>
-                                        <h3 className="percent-number-pretty">{masterData.plan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
-                                        <p>ร้อยละของแผนรับ</p>
-                                        <p className=''>{masterData.percentPlan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                                    </div>
-
-                                </div>
-                                <div className="card text-center">
-                                    <div className="card-body bg-warning text-dark">
-                                        <h5 className="card-title">สมัคร</h5>
-                                        <h3 className="percent-number-pretty">{masterData.applicant.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
-                                        <p>ร้อยละของแผนรับ</p>
-                                        <p>{masterData.percentApplicant.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
-                                    </div>
-                                </div>
-
                             </div>
-                            <div className="col-lg-6 col-md">
-                                <div className="card text-center">
-                                    <div className="card-body bg-success text-light">
-                                        <h5 className="card-title">Cf</h5>
-                                        <h3 className="percent-number-pretty">{masterData.confirm.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
-                                        <p>ร้อยละของแผนรับ</p>
-                                        <p>{masterData.percentConfirm.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                            <div className="row">
+                                <div className="col-lg-6 col-md">
+                                    <div className="card text-center">
+                                        <div className="card-body bg-primary text-light">
+                                            <h5 className="card-title">แผนรับ</h5>
+                                            <h3 className="percent-number-pretty">{masterData.plan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                            <p>ร้อยละของแผนรับ</p>
+                                            <p className=''>{masterData.percentPlan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                                        </div>
+
                                     </div>
+                                    <div className="card text-center">
+                                        <div className="card-body bg-warning text-dark">
+                                            <h5 className="card-title">สมัคร</h5>
+                                            <h3 className="percent-number-pretty">{masterData.applicant.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                            <p>ร้อยละของแผนรับ</p>
+                                            <p>{masterData.percentApplicant.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div className="card text-center">
-                                    <div className="card-body bg-danger text-light">
-                                        <h5 className="card-title">Stu.i</h5>
-                                        <h3 className="percent-number-pretty">{masterData.report.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
-                                        <p>ร้อยละของแผนรับ</p>
-                                        <p>{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                <div className="col-lg-6 col-md">
+                                    <div className="card text-center">
+                                        <div className="card-body bg-success text-light">
+                                            <h5 className="card-title">Cf</h5>
+                                            <h3 className="percent-number-pretty">{masterData.confirm.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                            <p>ร้อยละของแผนรับ</p>
+                                            <p>{masterData.percentConfirm.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        </div>
+                                    </div>
+                                    <div className="card text-center">
+                                        <div className="card-body bg-danger text-light">
+                                            <h5 className="card-title">Stu.i</h5>
+                                            <h3 className="percent-number-pretty">{masterData.report.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h3>
+                                            <p>ร้อยละของแผนรับ</p>
+                                            <p>{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -229,6 +269,7 @@ const Chartcomponent = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 
