@@ -79,7 +79,7 @@ const Chartcomponent = () => {
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
-            }, [])
+            }, [dataTable])
     }
 
     useEffect(() => {

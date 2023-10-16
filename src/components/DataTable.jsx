@@ -11,7 +11,7 @@ function DataTable({ data }) {
                 accessor: 'name',
             },
             {
-                Header: () => (<div className="text-start">แผนรับ</div>),
+                Header: () => (<div className="text-end">แผนรับ</div>),
                 accessor: 'plan',
                 Cell: ({ cell: { value } }) => {
                     return (
@@ -38,7 +38,7 @@ function DataTable({ data }) {
                 }
             },
             {
-                Header: 'Stu.i',
+                Header: () => (<div className="text-end">Stu.i</div>),
                 accessor: 'report',
                 Cell: ({ cell: { value } }) => {
                     return (
