@@ -162,6 +162,10 @@ const Chartcomponent = () => {
 
                         <li className=" bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
                         </li>
+                        <div className='bg-light rounded-pill text-dark  p-2 ms-auto'>
+                            <ShareThisPage />
+
+                        </div>
                     </ol>
                 </nav>
 
@@ -174,12 +178,12 @@ const Chartcomponent = () => {
                     </div>
                     <div className="col-lg-4 col-md-12 col-sm">
                         <div className="row">
-                            <div className="col d-flex justify-content-around align-item-center">
+                            {/* <div className="col d-flex justify-content-around align-item-center">
                                 <h4>Social Share</h4>
                                 <ShareThisPage />
 
 
-                            </div>
+                            </div> */}
                         </div>
                         <div className="row">
                             <div className="col-lg-6 col-md">

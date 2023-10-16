@@ -31,14 +31,14 @@ const ShareThisPage = () => {
                 quote={shareMessage}
                 picture={imagePreviewUrl} // Include the image URL
             >
-                <FontAwesomeIcon icon={faFacebook} size="2x" className='text-primary' />
+                <FontAwesomeIcon icon={faFacebook} size="1x" className='text-primary' />
             </FacebookShareButton>
             <TwitterShareButton url={currentPageUrl} title={shareMessage}>
-                <FontAwesomeIcon icon={faXTwitter} size="2x" className='mx-2' />
+                <FontAwesomeIcon icon={faXTwitter} size="1x" className='mx-2' />
 
             </TwitterShareButton>
             <LineShareButton url={currentPageUrl} title={shareMessage}>
-                <FontAwesomeIcon icon={faLine} size="2x" className='text-success' />
+                <FontAwesomeIcon icon={faLine} size="1x" className='text-success' />
             </LineShareButton>
             {/* Add more share buttons for other platforms as needed */}
         </div>
