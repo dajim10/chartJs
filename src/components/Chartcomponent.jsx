@@ -149,10 +149,29 @@ const Chartcomponent = () => {
             plotOptions: {
                 pie: {
                     dataLabels: {
-                        inside: false,
-                        enabled: !isMobile,
+                        inside: true,
+                        function() {
+                            if (!isMobile) {
+                                return this.distance = -30;
+                            }
+                        },
+                        // distance: -30,
+                        // distance: function () {
+                        //     if (isMobile) {
+
+                        //         return -30;
+
+                        //     }
+                        // },
+                        enabled: true,
                         formatter: function () {
-                            return '<p style="font-size: 14px; font-family: Sarabun, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
+                            if (!isMobile) {
+                                return '<p style="font-size: 14px; font-family: Sarabun, sans-serif;">' + this.point.name + ': ' + '[' + Highcharts.numberFormat(this.y, 0, '.', ',') + '] คน</p>';
+                            } else {
+                                return this.y > 0 ? this.point.id : null;
+                            }
+
+                            // 
                         },
 
 
@@ -193,7 +212,7 @@ const Chartcomponent = () => {
                 {
                     // name: name[0],
                     name: 'แผนรับ',
-                    data: chartData.map(item => ({ name: item.name, y: item.plan })),
+                    data: chartData.map(item => ({ id: item.id, name: item.name, y: item.plan })),
 
                 },
             ],
