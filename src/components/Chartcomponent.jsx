@@ -10,11 +10,17 @@ import Logo from '../assets/LOGO-RUTS-10.png'
 
 
 const Chartcomponent = () => {
+
+
+
+
+
+
     const currentDate = new Date();
 
     // Get day, month, and year components
     const day = currentDate.getDate().toString().padStart(2, '0');
-    const month = (currentDate.getMonth()).toString().padStart(2, '0'); // Months are 0-based
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
     const year = currentDate.getFullYear();
     const time = currentDate.toLocaleTimeString();
 
@@ -36,10 +42,40 @@ const Chartcomponent = () => {
     });
     const [nameClicked, setNameClicked] = useState('');
     const [divStyle, setDivStyle] = useState({});
+    //ตรวจสอบว่ามีการเปลี่ยนขนาดหน้าจอหรือไม่
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    });
+    const [isMobile, setIsMobile] = useState(true);
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            const newWidth = window.innerWidth;
+            if (newWidth < 768) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        };
+
+        // Add a listener for the resize event and call handleResize
+        window.addEventListener("resize", handleResize);
+        handleResize(); // Call it initially to set the correct state
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+
 
 
 
     useEffect(() => {
+
 
 
 
@@ -65,24 +101,7 @@ const Chartcomponent = () => {
 
     }, []);
 
-    // {
-    //     facultyID ?
-    //         useEffect(() => {
-    //             fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
-    //                 .then(response => response.json())
-    //                 .then(data => setDataTable(data.program))
-    //                 .catch(error => console.log(error))
-    //         }, [facultyID])
 
-    //         :
-    //         useEffect(() => {
-    //             fetch(`https://ars.rmutsv.ac.th/json/`)
-    //                 .then(response => response.json())
-    //                 .then(data => setDataTable(data.program))
-    //                 .catch(error => console.log(error))
-    //         }, [])
-
-    // }
     useEffect(() => {
         // This effect fetches data when facultyID is an empty string (initial load)
         if (!facultyID) {
@@ -111,6 +130,9 @@ const Chartcomponent = () => {
 
         Highcharts.chart('chart-container', {
             chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
                 type: 'pie',
             },
             colors: [
@@ -127,10 +149,12 @@ const Chartcomponent = () => {
             plotOptions: {
                 pie: {
                     dataLabels: {
-                        enabled: true,
+                        inside: false,
+                        enabled: !isMobile,
                         formatter: function () {
                             return '<p style="font-size: 14px; font-family: Sarabun, sans-serif;">' + this.point.name + ': ' + Highcharts.numberFormat(this.y, 0, '.', ',') + ' คน</p>';
-                        }
+                        },
+
 
                     },
                     point: {
