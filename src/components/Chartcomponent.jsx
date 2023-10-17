@@ -150,19 +150,8 @@ const Chartcomponent = () => {
                 pie: {
                     dataLabels: {
                         inside: true,
-                        function() {
-                            if (!isMobile) {
-                                return this.distance = -30;
-                            }
-                        },
-                        // distance: -30,
-                        // distance: function () {
-                        //     if (isMobile) {
+                        distance: isMobile ? -50 : 20,
 
-                        //         return -30;
-
-                        //     }
-                        // },
                         enabled: true,
                         formatter: function () {
                             if (!isMobile) {
