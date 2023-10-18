@@ -214,7 +214,7 @@ const Chartcomponent = () => {
         <div className="container mt-2">
             <div className="row ">
                 <div className="col-lg-9 col-md-12 col-sm">
-                    <h3 className='text-center color-ruts bg-warning rounded-pill shadow'>รายงานข้อมูลนักศึกษาใหม่ปีการศึกษา {year + 544} </h3>
+                    <h3 className='text-center color-ruts bg-warning rounded-pill shadow'>รายงานข้อมูลการรับเข้านักศึกษาปีการศึกษา {year + 544} </h3>
                     <small style={{ float: 'right' }}>ข้อมูล ณ.วันที่ {formattedDate}</small>
 
                 </div>
