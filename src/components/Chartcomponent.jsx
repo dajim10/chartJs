@@ -21,7 +21,7 @@ const Chartcomponent = () => {
     const time = currentDate.toLocaleTimeString();
 
     // Combine the components to form the date string
-    const formattedDate = `${day}/${month}/${year} เวลา ${time} น.`;
+    const formattedDate = `${day}/${month}/${year} เวลา ${time} `;
     const [chartData, setChartData] = useState([]);
     const [facultyID, setFacultyID] = useState('');
     const [dataTable, setDataTable] = useState([]);
