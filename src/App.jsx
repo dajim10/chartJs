@@ -16,6 +16,7 @@ const App = () => {
         <div className="container">
             <div className="row">
                 <div className="col-12 fload-right">
+                    {/* export to JPG */}
                     <ExportToJPG />
                 </div>
             </div>
