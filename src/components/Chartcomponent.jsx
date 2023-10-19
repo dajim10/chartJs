@@ -12,10 +12,6 @@ import Logo from '../assets/LOGO-RUTS-10.png'
 const Chartcomponent = () => {
 
 
-
-
-
-
     const currentDate = new Date();
 
     // Get day, month, and year components
@@ -76,9 +72,6 @@ const Chartcomponent = () => {
 
     useEffect(() => {
 
-
-
-
         fetch('https://ars.rmutsv.ac.th/json')
             .then(response => response.json())
             .then(data => {
@@ -101,26 +94,57 @@ const Chartcomponent = () => {
 
     }, []);
 
+    /// edit to fetch every 60 sec.
+    // useEffect(() => {
+    //     // This effect fetches data when facultyID is an empty string (initial load)
+    //     if (!facultyID) {
+    //         fetch(`https://ars.rmutsv.ac.th/json/`)
+    //             .then(response => response.json())
+    //             .then(data => setDataTable(data.program))
+    //             .catch(error => console.log(error))
+    //     }
+    // }, [facultyID]);
 
+    // useEffect(() => {
+    //     if (facultyID) {
+    //         fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+    //             .then(response => response.json())
+    //             .then(data => setDataTable(data.program))
+    //             .catch(error => console.log(error))
+    //     }
+    // }, [facultyID]);
+    //// end edit to fetch every 60 sec.
     useEffect(() => {
-        // This effect fetches data when facultyID is an empty string (initial load)
-        if (!facultyID) {
-            fetch(`https://ars.rmutsv.ac.th/json/`)
-                .then(response => response.json())
-                .then(data => setDataTable(data.program))
-                .catch(error => console.log(error))
-        }
+        // Function to fetch data
+        const fetchData = () => {
+            if (!facultyID) {
+                fetch(`https://ars.rmutsv.ac.th/json/`)
+                    .then(response => response.json())
+                    .then(data => setDataTable(data.program))
+                    .catch(error => console.log(error))
+            } else {
+                fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+                    .then(response => response.json())
+                    .then(data => setDataTable(data.program))
+                    .catch(error => console.log(error))
+            }
+        };
+
+        // Initial data fetch
+        fetchData();
+
+        // Set an interval to fetch data every 60 seconds
+        const intervalId = setInterval(fetchData, 60000);
+        console.log('intervalId', intervalId);
+
+        // Clean up the interval when the component unmounts
+        return () => clearInterval(intervalId);
     }, [facultyID]);
 
-    // The existing effect for fetching data when facultyID is set
-    useEffect(() => {
-        if (facultyID) {
-            fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
-                .then(response => response.json())
-                .then(data => setDataTable(data.program))
-                .catch(error => console.log(error))
-        }
-    }, [facultyID]);
+
+    /// end edit to fetch every 60 sec.
+
+
 
 
     useEffect(() => {
