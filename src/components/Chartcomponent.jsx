@@ -289,11 +289,11 @@ const Chartcomponent = () => {
 
                     <div className="row">
 
-                        <div className="col-lg-8 col-md-12 col-sm">
+                        <div className="col-lg-8 col-md-12 col-sm column-1">
                             <DataTable data={dataTable} />
 
                         </div>
-                        <div className="col-lg-4 col-md-12 col-sm">
+                        <div className="col-lg-4 col-md-12 col-sm column-2">
                             <div className="row">
                                 {/* <div className="col d-flex justify-content-around align-item-center">
                                 <h4>Social Share</h4>
