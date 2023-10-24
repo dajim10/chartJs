@@ -97,19 +97,19 @@ const Area = () => {
                     <h5 className='text-success'>TCAS</h5>
                     <div className="card mb-4" style={{ background: '#AD1457', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">สมัคร_ปวช./ปวส.</h5>
+                            <h5 className="card-title">สมัคร_ม.6 (TCAS)</h5>
                             <h4 className="card-text">{data.applicanttech ? data.applicanttech.toLocaleString() : '0'}</h4>
                         </div>
                     </div>
                     <div className="card mb-4" style={{ background: '#AD1457', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">Cf_ปวช./ปวส.</h5>
+                            <h5 className="card-title">Cf_ม.6 (TCAS)</h5>
                             <h4 className="card-text">{data.confirmtech ? data.confirmtech.toLocaleString() : '0'}</h4>
                         </div>
                     </div>
                     <div className="card mb-4" style={{ background: '#AD1457', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">Stu.i_ปวช./ปวส.</h5>
+                            <h5 className="card-title">Stu.i_ม.6 (TCAS)</h5>
                             <h4 className="card-text">{data.reporttech ? data.reporttech.toLocaleString() : '0'}</h4>
                         </div>
                     </div>
@@ -118,19 +118,19 @@ const Area = () => {
                     <h5 className='text-success'>รวมทั้งสิ้น</h5>
                     <div className="card mb-4" style={{ background: '#061b8e', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">สมัคร_ปวช./ปวส.</h5>
+                            <h5 className="card-title">สมัคร</h5>
                             <h4 className="card-text">{data.applicant ? data.applicant.toLocaleString() : '0'}</h4>
                         </div>
                     </div>
                     <div className="card mb-4" style={{ background: '#061b8e', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">Cf_ปวช./ปวส.</h5>
+                            <h5 className="card-title">Cf</h5>
                             <h4 className="card-text">{data.confirm ? data.confirm.toLocaleString() : '0'}</h4>
                         </div>
                     </div>
                     <div className="card mb-4" style={{ background: '#061b8e', color: '#fff' }}>
                         <div className="card-body text-end m-3">
-                            <h5 className="card-title">Stu.i_ปวช./ปวส.</h5>
+                            <h5 className="card-title">Stu.i</h5>
                             <h4 className="card-text">{data.report ? data.report.toLocaleString() : '0'}</h4>
                         </div>
 
