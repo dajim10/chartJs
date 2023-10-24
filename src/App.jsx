@@ -15,7 +15,7 @@ const App = () => {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             <div className="row">
                 <div className="col-12 fload-right">
