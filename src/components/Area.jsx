@@ -136,7 +136,6 @@ const Area = () => {
 
                     </div>
 
-
                 </div>
             </div>
             <div className="row">

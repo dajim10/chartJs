@@ -17,9 +17,7 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link to="/ars" className="nav-link" href="#">Area Report</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Export to JPG</a>
-                        </li>
+
 
                     </ul>
                 </div>
