@@ -42,7 +42,7 @@ const Area = () => {
     return (
         <div className='container'>
             <div className="py-3 text-center">
-                <h3>รายงานข้อมูลการรับเข้านักศึกษาปีการศึกษา {formattedDate}</h3>
+                <h3>รายงานข้อมูลการรับเข้านักศึกษา ณ.วันที่ {formattedDate}</h3>
                 <p>รอบการรับ / พื้นที่</p>
             </div>
             <div className="row">
