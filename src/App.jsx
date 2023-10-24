@@ -23,7 +23,7 @@ const App = () => {
                     {/* <ExportToJPG /> */}
                     <Routes>
                         <Route path="/" element={<ExportToJPG />} />
-                        <Route path="/ars" element={<Area />} />
+                        <Route path="/area" element={<Area />} />
                     </Routes>
                 </div>
             </div>
