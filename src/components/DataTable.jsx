@@ -15,7 +15,7 @@ function DataTable({ data }) {
                 accessor: 'plan',
                 Cell: ({ cell: { value } }) => {
                     return (
-                        <div style={{ textAlign: 'right' }}>{value}</div>
+                        <div style={{ textAlign: 'right' }}>{value ? value.toLocaleString() : '0'}</div>
                     )
                 }
             },
@@ -24,7 +24,7 @@ function DataTable({ data }) {
                 accessor: 'applicant',
                 Cell: ({ cell: { value } }) => {
                     return (
-                        <div style={{ textAlign: 'right' }}>{value}</div>
+                        <div style={{ textAlign: 'right' }}>{value ? value.toLocaleString() : '0'}</div>
                     )
                 }
             },
@@ -33,7 +33,7 @@ function DataTable({ data }) {
                 accessor: 'confirm',
                 Cell: ({ cell: { value } }) => {
                     return (
-                        <div style={{ textAlign: 'right' }}>{value}</div>
+                        <div style={{ textAlign: 'right' }}>{value ? value.toLocaleString() : '0'}</div>
                     )
                 }
             },
@@ -42,7 +42,7 @@ function DataTable({ data }) {
                 accessor: 'report',
                 Cell: ({ cell: { value } }) => {
                     return (
-                        <div style={{ textAlign: 'right' }}>{value}</div>
+                        <div style={{ textAlign: 'right' }}>{value ? value.toLocalString() : '0'}</div>
                     )
                 }
             },
