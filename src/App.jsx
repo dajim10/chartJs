@@ -6,7 +6,7 @@ import ExportToJPG from './components/ExportToJpg'
 import Area from './components/Area'
 import Navbar from './components/Navbar'
 
-import { BrowserRouter as Router,Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 // import BarChart from './components/PieChart'
 // Test Deployment ******
@@ -14,7 +14,7 @@ const App = () => {
 
 
     return (
-        <Router>
+        <>
             <Navbar />
 
             <div className="row">
@@ -29,7 +29,7 @@ const App = () => {
             </div>
 
 
-        <Router/>
+        </>
     )
 }
 
