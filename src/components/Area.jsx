@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import DataTable from './DataTable';
 import BarChart from './BarChart';
+import Logo from '../assets/LOGO-RUTS-10.png'
+import ExportToJPG from './ExportToJpg';
 
 
 const Area = () => {
@@ -42,11 +44,34 @@ const Area = () => {
 
     return (
         <div className='container'>
-            <BarChart data={data} />
+            {/* <BarChart data={data} /> */}
             {/* <div className="py-3 text-center">
                 <h3>รายงานข้อมูลการรับเข้านักศึกษา ณ.วันที่ {formattedDate}</h3>
                 <p>รอบการรับ / พื้นที่</p>
+            </div> */}
+            {/* <div className="py-3 text-center">
+                <h3 className='text-center color-ruts bg-warning rounded-pill shadow'>รายงานข้อมูลการรับเข้านักศึกษาปีการศึกษา {year + 544} </h3>
+                <small style={{ float: 'right' }}>ข้อมูล ณ.วันที่ {formattedDate}</small>
+            </div> */}
+            <div className="row ">
+
+                <div className="col-lg-9 col-md-12 col-sm">
+                    <h3 className='text-center color-ruts bg-warning rounded-pill shadow'>รายงานข้อมูลการรับเข้านักศึกษาปีการศึกษา {year + 544} </h3>
+                    <small style={{ float: 'right' }}>ข้อมูล ณ.วันที่ {formattedDate}</small>
+
+                </div>
+                <div className="col-lg-3 col-md-12 col-sm">
+                    <div className="text-center">
+
+                        <img src={Logo} alt="logo" width={200} id="logo" />
+
+                    </div>
+                </div>
+                <div className='d-flex justify-content-between align-items-center'>
+                    {/* <ExportToJPG /> */}
+                </div>
             </div>
+
             <div className="row">
                 <div className="col-lg-3 col-md-6 col-sm">
                     <h5 className='text-success text-center'>โควต้าพิเศษ</h5>
@@ -155,7 +180,7 @@ const Area = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

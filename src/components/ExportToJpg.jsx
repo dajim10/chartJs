@@ -3,7 +3,7 @@ import html2canvas from 'html2canvas';
 import 'canvas-toBlob';
 import saveAs from 'file-saver';
 import Chartcomponent from './Chartcomponent';
-import Area from './Area';
+
 
 
 const ExportToJPG = () => {
@@ -29,6 +29,7 @@ const ExportToJPG = () => {
                     {/* Your content goes here */}
                     {/* <Area /> */}
                     <Chartcomponent />
+
                 </div>
             </div>
         </>
