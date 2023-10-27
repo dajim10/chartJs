@@ -14,7 +14,7 @@ import { faFacebook, faXTwitter, faLine } from '@fortawesome/free-brands-svg-ico
 
 const ShareThisPage = () => {
     // Define the URL of the current page
-    const currentPageUrl = 'https://stdreport.rmutsv.ac.th/';
+    const currentPageUrl = 'https://ars.rmutsv.ac.th/';
     // const currentPageUrl = window.location.href;
 
     // You can customize the message to be shared
