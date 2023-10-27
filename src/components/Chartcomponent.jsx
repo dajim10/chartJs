@@ -156,12 +156,12 @@ const Chartcomponent = () => {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
-                plotShadow: false,
+                plotShadow: true,
                 type: 'pie',
             },
             colors: [
-                '#7cb5ec', '#eee', '#90ed7d', '#f7a35c',
-                '#ffcc00', '#f15c80', '#e4d354', '#8085e8',
+                '#ffcc99', '#eee', '#90ed7d', '#f7a35c',
+                'skyblue', '#f15c80', '#e4d354', '#8085e8',
                 '#8d4653', '#91e8e1', '#90ee3e', '#e2e',
                 '#141513', '#00154b', '#ff0000'
             ],

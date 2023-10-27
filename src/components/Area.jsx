@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DataTable from './DataTable';
+import BarChart from './BarChart';
 
 
 const Area = () => {
@@ -41,7 +42,8 @@ const Area = () => {
 
     return (
         <div className='container'>
-            <div className="py-3 text-center">
+            <BarChart data={data} />
+            {/* <div className="py-3 text-center">
                 <h3>รายงานข้อมูลการรับเข้านักศึกษา ณ.วันที่ {formattedDate}</h3>
                 <p>รอบการรับ / พื้นที่</p>
             </div>
@@ -153,7 +155,7 @@ const Area = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
