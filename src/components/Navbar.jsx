@@ -1,7 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
+    const handleExportClick = () => {
+        if (contentRef.current) {
+            html2canvas(contentRef.current).then((canvas) => {
+                canvas.toBlob((blob) => {
+                    saveAs(blob, 'exported-page.jpg');
+                });
+            });
+        }
+    };
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div className="container-fluid">
@@ -12,10 +24,15 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to="/" className="nav-link active" aria-current="page" href="#">Home</Link>
+                            <Link to="/" className="nav-link active" aria-current="page" href="#">
+                                <FontAwesomeIcon icon={faHouse} />
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/area" className="nav-link" href="#">Area Report</Link>
+                        </li>
+                        <li className='nav-item'>
+                            <button onClick={() => handleExportClick} className="btn btn-primary rounded-pill shadow" href="#">Export to JPG</button>
                         </li>
 
 

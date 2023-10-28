@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import DataTable from './DataTable';
 import BarChart from './BarChart';
 import Logo from '../assets/LOGO-RUTS-10.png'
-import ExportToJPG from './ExportToJpg';
+
 
 
 const Area = () => {
