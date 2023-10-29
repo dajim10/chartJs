@@ -7,6 +7,7 @@ import Area from './components/Area'
 import Navbar from './components/Navbar'
 
 import { Routes, Route } from 'react-router-dom'
+import BarChart from './components/BarChart_bk'
 
 // import BarChart from './components/PieChart'
 // Test Deployment ******

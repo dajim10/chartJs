@@ -5,24 +5,17 @@ import './Mytable.css';
 import ShareThisPage from './ShareThisPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
-// import Logo from '../assets/LOGO-RUTS-10.png'
-import Header from './Header';
+import Logo from '../assets/LOGO-RUTS-10.png'
 
 
 
-const Chartcomponent = () => {
+const BarChart = () => {
 
 
-    const currentDate = new Date();
-
-    // Get day, month, and year components
-    const day = currentDate.getDate().toString().padStart(2, '0');
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
-    const year = currentDate.getFullYear();
-    const time = currentDate.toLocaleTimeString();
+   
 
     // Combine the components to form the date string
-    const formattedDate = `${day}/${month}/${year} เวลา ${time} `;
+    
     const [chartData, setChartData] = useState([]);
     const [facultyID, setFacultyID] = useState('');
     const [dataTable, setDataTable] = useState([]);
@@ -68,9 +61,6 @@ const Chartcomponent = () => {
     }, []);
 
 
-
-
-
     useEffect(() => {
 
         fetch('https://ars.rmutsv.ac.th/json')
@@ -80,6 +70,15 @@ const Chartcomponent = () => {
                     facultyName: data.faculty.name,
                     plan: data.university.plan,
                     applicant: data.university.applicant,
+                    applicantqp: data.university.applicantqp,
+                    applicantqpm6: data.university.applicantqpm6,
+                    applicanttcas: data.university.applicanttcas,
+                    confirmqp: data.university.confirmqp,
+                    confirmqpm6: data.university.confirmqpm6,
+                    confirmtcas: data.university.confirmtcas,
+                    reportqp: data.university.reportqp,
+                    reportqpm6: data.university.reportqpm6,
+                    reporttcas: data.university.reporttcas,
                     confirm: data.university.confirm,
                     report: data.university.report,
                     percentPlan: '100%',
@@ -95,7 +94,7 @@ const Chartcomponent = () => {
 
     }, []);
 
-   
+
     useEffect(() => {
         // Function to fetch data
         const fetchData = () => {
@@ -139,7 +138,7 @@ const Chartcomponent = () => {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
                 plotShadow: true,
-                type: 'pie',
+                type: 'column',
             },
             colors: [
                 '#ffcc99', '#eee', '#90ed7d', '#f7a35c',
@@ -207,7 +206,7 @@ const Chartcomponent = () => {
                 {
                     // name: name[0],
                     name: 'แผนรับ',
-                    data: chartData.map(item => ({ id: item.id, name: item.name, y: item.plan })),
+                    data: planNumber,
 
                 },
             ],
@@ -218,8 +217,14 @@ const Chartcomponent = () => {
 
     return (
         <div className="container mt-2">
-            <Header />
-            
+           
+            <div className="row">
+                <div className="col">
+                    {/* <ExportToJPG /> */}
+                    {/* <Chartcomponent /> */}
+                </div>
+
+            </div>
 
             {/* <BarChart /> */}
             <div className='main'>
@@ -312,4 +317,4 @@ const Chartcomponent = () => {
 };
 
 
-export default Chartcomponent;
+export default BarChart;
