@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import Header from './Header';
+
 import BarChart from './BarChart';
-// <<<<<<< HEAD
-import Logo from '../assets/LOGO-RUTS-10.png'
-
-// =======
-// >>>>>>> 9b00ccb06875d6d75933b8470c7591afff9900f3
-
 
 const Area = () => {
 
     const [data, setData] = useState([]);
     const [campus, setCampus] = useState([]);
-
-
-
 
 
     useEffect(() => {
@@ -31,10 +22,9 @@ const Area = () => {
 
     return (
         <div className='container-fluid'>
-            <div className="container mt-3">
-                <Header />
-                <BarChart data={data} />
-            </div>
+            {/* <div className="container mt-3"> */}
+            <BarChart data={data} />
+            {/* </div> */}
 
 
 

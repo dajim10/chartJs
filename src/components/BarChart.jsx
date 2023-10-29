@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Highcharts, { numberFormat } from 'highcharts';
 import DataTable from './DataTable';
 import './Mytable.css';
@@ -6,9 +6,25 @@ import ShareThisPage from './ShareThisPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 
+import html2canvas from 'html2canvas';
+import 'canvas-toBlob';
+import saveAs from 'file-saver';
+import Header from './Header';
+
 const BarChart = ({ data }) => {
 
     const [campusData, setCampusData] = useState([]);
+    const contentRef = useRef(null);
+
+    const handleExportClick = () => {
+        if (contentRef.current) {
+            html2canvas(contentRef.current).then((canvas) => {
+                canvas.toBlob((blob) => {
+                    saveAs(blob, 'exported-page.jpg');
+                });
+            });
+        }
+    };
 
     useEffect(() => {
         fetch('https://ars.rmutsv.ac.th/json')
@@ -67,7 +83,7 @@ const BarChart = ({ data }) => {
                 data: [data.applicantqp, data.applicanttech, data.applicantqpm6]
 
             }, {
-                name: 'confirm',
+                name: 'Cf',
                 data: [data.confirmqp, data.confirmtech, data.confirmqpm6]
 
 
@@ -81,40 +97,44 @@ const BarChart = ({ data }) => {
 
 
     return (
-        <>
-            <div id="chart-container">
+        <div className='container'>
+            <button onClick={handleExportClick} className='btn btn-primary rounded-pill shadow m-2'>Export to JPG</button>
+            <div ref={contentRef} id="export-to-jpg">
+                <Header />
+                <div id="chart-container">
 
-
-            </div>
-            <div className="row mt-4 mb-3 float-left">
-
-                <ShareThisPage />
-
-            </div>
-
-
-            <div className="row">
-
-                <div className="col col-lg-9 col-md-6 col-sm">
-
-                    <DataTable data={campusData} />
 
                 </div>
-                <div className="col col-lg-3 col-md-6 col-sm">
+                <div className="row mt-4 mb-3 float-left">
 
-                    <div className="card bg-warning text-light">
-                        <div className="card-body text-end">
-                            <div className="card-title">
-                                <h1>แผนรับ</h1>
-                                <h5>{data.plan ? data.plan.toLocaleString() : '0'}</h5>
-                                <p className='text-start text-success'>100%</p>
+                    <ShareThisPage />
+
+                </div>
+
+
+                <div className="row">
+
+                    <div className="col col-lg-9 col-md-6 col-sm">
+
+                        <DataTable data={campusData} />
+
+                    </div>
+                    <div className="col col-lg-3 col-md-6 col-sm">
+
+                        <div className="card bg-warning text-light">
+                            <div className="card-body text-end">
+                                <div className="card-title">
+                                    <h1>แผนรับ</h1>
+                                    <h5>{data.plan ? data.plan.toLocaleString() : '0'}</h5>
+                                    <p className='text-start text-success'>100%</p>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
