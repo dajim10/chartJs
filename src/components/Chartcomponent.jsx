@@ -236,7 +236,7 @@ const Chartcomponent = () => {
 
 
 
-            <div className="container mt-2" ref={contentRef} id="export-to-jpg">
+            <div className="container" ref={contentRef} id="export-to-jpg">
                 {/* <button onClick={handleExportClick} className='btn btn-primary rounded-pill shadow m-2'>Export to JPG</button> */}
                 <Header />
 
