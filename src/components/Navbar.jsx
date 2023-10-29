@@ -17,23 +17,23 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">ARS</a>
+                <Link to="/" className="navbar-brand" href="#"><FontAwesomeIcon icon={faHouse} /></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link to="/" className="nav-link active" aria-current="page" href="#">
                                 <FontAwesomeIcon icon={faHouse} />
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
-                            <Link to="/area" className="nav-link" href="#">Area Report</Link>
+                            <Link to="/area" className="btn btn-primary rounded-pill rounded-pill shadow mx-2 mb-2" href="#">Area Report</Link>
                         </li>
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
                             <button onClick={() => handleExportClick} className="btn btn-primary rounded-pill shadow" href="#">Export to JPG</button>
-                        </li>
+                        </li> */}
 
 
                     </ul>
