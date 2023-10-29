@@ -219,7 +219,7 @@ const Chartcomponent = () => {
     return (
         <div className="container mt-2">
             <Header />
-            
+                        
 
             {/* <BarChart /> */}
             <div className='main'>
