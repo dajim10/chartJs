@@ -18,12 +18,12 @@ const App = () => {
         <>
             {/* <Navbar /> */}
 
-            <div className="row">
+            <div className="container">
                 <div className="col-12 fload-right">
-                    <div className='sticky-top' style={{backdropFilter:'blur(5px)'} }>
-                        <Link to="/" className='btn btn-primary m-2 rounded-pill'>Home</Link>
-                        <Link to="/area" className='btn btn-primary m-2 rounded-pill'>Area Report</Link>
-                    </div>
+                    {/* <div className='sticky-top' style={{ backdropFilter: 'blur(5px)' }}> */}
+                    {/* <Link to="/" className='btn btn-primary m-2 rounded-pill'>Home</Link>
+                        <Link to="/area" className='btn btn-primary m-2 rounded-pill'>Area Report</Link> */}
+                    {/* </div> */}
                     {/* <ExportToJPG /> */}
                     <Routes>
                         <Route path="/" element={<Chartcomponent />} />

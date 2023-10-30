@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
 // import Logo from '../assets/LOGO-RUTS-10.png'
 import Header from './Header';
+import { Link } from 'react-router-dom'
 
 import html2canvas from 'html2canvas';
 import 'canvas-toBlob';
@@ -232,11 +233,19 @@ const Chartcomponent = () => {
 
     return (
         <div className='container'>
-            <button onClick={handleExportClick} className='btn btn-primary rounded-pill shadow m-2'>Export to JPG</button>
+            
+            <nav className='navbar navbar-extended-sm sticky-top' style={{ backdropFilter: 'blur(5px)' }}>
+                
+                <Link to="/" className='btn btn-primary rounded-pill mx-auto'>Home</Link>
+                <Link to="/area" className='btn btn-primary rounded-pill mx-auto'>Area Report</Link>
+                <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'>Export to JPG</button>
+
+            </nav>
+
+           
 
 
-
-            <div className="container" ref={contentRef} id="export-to-jpg">
+            <div className="container mt-2" ref={contentRef} id="export-to-jpg">
                 {/* <button onClick={handleExportClick} className='btn btn-primary rounded-pill shadow m-2'>Export to JPG</button> */}
                 <Header />
 
