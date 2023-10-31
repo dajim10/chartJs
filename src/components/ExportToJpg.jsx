@@ -28,7 +28,7 @@ const ExportToJPG = () => {
                 <div ref={contentRef} id="export-to-jpg">
                     {/* Your content goes here */}
                     {/* <Area /> */}
-                    <Chartcomponent />
+                    {/* <Chartcomponent /> */}
                     {/* <Area /> */}
 
                 </div>
