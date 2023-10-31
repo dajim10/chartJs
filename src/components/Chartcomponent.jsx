@@ -222,27 +222,34 @@ const Chartcomponent = () => {
                 {
                     // name: name[0],
                     name: 'แผนรับ',
-                    data: chartData.map(item => ({ id: item.id, name: item.name, y: item.plan })),
+                    data: chartData.map(item => ({
+                        id: item.id, name: item.name,
+                        y: item.plan, // Assuming item.plan is a number
+                        formattedY: item.plan.toLocaleString('en-US')
+
+                    })),
 
                 },
             ],
-
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.formattedY}</b><br/>',
+            },
         });
     }, [chartData]);
 
 
     return (
         <div className='container'>
-            
+
             <nav className='navbar navbar-extended-sm sticky-top' style={{ backdropFilter: 'blur(5px)' }}>
-                
+
                 <Link to="/" className='btn btn-primary rounded-pill mx-auto'>Home</Link>
                 <Link to="/area" className='btn btn-primary rounded-pill mx-auto'>Area Report</Link>
                 <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'>Export to JPG</button>
 
             </nav>
 
-           
+
 
 
             <div className="container mt-2" ref={contentRef} id="export-to-jpg">
