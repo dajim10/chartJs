@@ -170,20 +170,21 @@ const BarChart = ({ data }) => {
 
                 <div className="row">
 
-                    <div className="col col-lg-8 col-md-6 col-sm">
+                    <div className="col-lg-8 col-md-12 col-sm column-1">
 
                         <DataTable data={campusData} />
 
 
                     </div>
-                    <div className="col col-lg-4 col-md-6 col-sm">
+                    <div className="col col-lg-4 col-md-12 col-sm column-1">
 
                         <div className="row">
-                            <div className="col col-lg-6 col-sm">
+
+                            <div className="col-lg-6 col-md">
                                 <div className="card shadow bg-primary text-light text-center">
                                     <div className="card-body">
                                         <h5 className="card-title">แผน</h5>
-                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.plan, 0, ".", ",")} คน</p>
+                                        <h3 className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.plan, 0, ".", ",")} คน</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="card-text">{masterData.percentPlan} %</p>
                                     </div>
@@ -191,39 +192,43 @@ const BarChart = ({ data }) => {
                             </div>
 
 
-                            <div className="col col-lg-6 col-sm">
+                            <div className="col-lg-6 col-md">
                                 <div className="card shadow bg-success text-light text-center">
                                     <div className="card-body">
                                         <h5 className="card-title">Cf</h5>
-                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.confirm, 0, ".", ",")} คน</p>
+                                        <h3 className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.confirm, 0, ".", ",")} คน</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="card-text">{numberFormat(masterData.percentConfirm, 2, ".", ",")} %</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col col-lg-6 col-sm">
+
+
+
+
+                            <div className="col-lg-6 col-md">
                                 <div className="card shadow bg-warning text-light text-center">
                                     <div className="card-body">
                                         <h5 className="card-title">สมัคร</h5>
-                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.applicant, 0, ".", ",")} คน</p>
+                                        <h3 className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.applicant, 0, ".", ",")} คน</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="card-text">{numberFormat(masterData.percentApplicant, 2, ".", ",")} %</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col col-lg-6 col-sm">
+                            <div className="col-lg-6 col-md">
                                 <div className="card shadow bg-danger text-light text-center">
                                     <div className="card-body">
                                         <h5 className="card-title">Stu.i</h5>
-                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.report, 0, ".", ",")} คน</p>
+                                        <h3 className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.report, 0, ".", ",")} คน</h3>
                                         <p>ร้อยละของแผนรับ</p>
                                         <p className="card-text">{numberFormat(masterData.percentReport, 2, ".", ",")} %</p>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
 
 
 
