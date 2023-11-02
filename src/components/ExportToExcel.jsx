@@ -34,7 +34,7 @@ const ExportToExcel = ({ data }) => {
                 worksheet.addRow([item.name, item.applicant, item.confirm, item.report])
             })
 
-            worksheet.addRow(['รวม', data.plan, data.confirm, data.report]);
+            // worksheet.addRow(['รวม', data.plan, data.confirm, data.report]);
 
             workbook.xlsx.writeBuffer().then((data) => {
                 const blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
