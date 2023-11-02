@@ -17,6 +17,13 @@ const BarChart = ({ data }) => {
 
     const [campusData, setCampusData] = useState([]);
     const contentRef = useRef(null);
+    const [masterData, setMasterData] = useState([]);
+
+
+    // const percentApplicant = data.applicant;
+    // const percentConfirm = data.confirm;
+    // const percentReport = data.report;
+
 
     const handleExportClick = () => {
         if (contentRef.current) {
@@ -29,12 +36,35 @@ const BarChart = ({ data }) => {
     };
 
     useEffect(() => {
-        fetch('https://ars.rmutsv.ac.th/json')
-            .then(response => response.json())
-            .then(data => {
-                setCampusData(data.campus)
-            })
-            .catch(error => console.log(error))
+
+        const fetchDate = () => {
+            fetch('https://ars.rmutsv.ac.th/json')
+                .then(response => response.json())
+                .then(data => {
+                    setCampusData(data.campus)
+                    setMasterData({
+                        facultyName: data.faculty.name,
+                        plan: data.university.plan,
+                        applicant: data.university.applicant,
+                        confirm: data.university.confirm,
+                        report: data.university.report,
+                        percentPlan: '100%',
+                        percentApplicant: data.university.applicant / data.university.plan * 100,
+                        percentConfirm: data.university.confirm / data.university.plan * 100,
+                        percentReport: data.university.report / data.university.plan * 100,
+                    })
+                })
+                .catch(error => console.log(error))
+        }
+        // Initial data fetch
+        fetchDate();
+
+        // Fetch data every 10 seconds
+        const interval = setInterval(() => {
+            fetchDate();
+        }, 10000);
+
+
     }, [campusData])
 
 
@@ -56,6 +86,7 @@ const BarChart = ({ data }) => {
                     'โควต้าพิเศษ',
                     'ปวช. ปวส.',
                     'TCAS',
+                    'รวมทุกประเภท'
 
                 ],
                 crosshair: true
@@ -86,16 +117,16 @@ const BarChart = ({ data }) => {
             },
             series: [{
                 name: 'สมัคร',
-                data: [data.applicantqp, data.applicanttech, data.applicantqpm6]
+                data: [data.applicantqp, data.applicanttech, data.applicantqpm6, data.applicant]
 
             }, {
                 name: 'Cf',
-                data: [data.confirmqp, data.confirmtech, data.confirmqpm6]
+                data: [data.confirmqp, data.confirmtech, data.confirmqpm6, data.confirm]
 
 
             }, {
                 name: 'Stu.i',
-                data: [data.reportqp, data.reporttech, data.reportqpm6]
+                data: [data.reportqp, data.reporttech, data.reportqpm6, data.report]
 
             }, {
 
@@ -126,36 +157,82 @@ const BarChart = ({ data }) => {
 
 
                 </div>
-                <div className="row mt-4 mb-3 float-left">
+                <div className="row mt-4 mb-3">
+                    <div className='d-flex justify-content-end align-item-center bg-dark text-light rounded-pill p-2'>
+                        <div className='bg-light rounded-pill text-dark p-2'>
 
-                    <ShareThisPage />
+                            <ShareThisPage />
+                        </div>
+                    </div>
 
                 </div>
 
 
                 <div className="row">
 
-                    <div className="col col-lg-9 col-md-6 col-sm">
+                    <div className="col col-lg-8 col-md-6 col-sm">
 
                         <DataTable data={campusData} />
 
-                    </div>
-                    <div className="col col-lg-3 col-md-6 col-sm">
 
-                        <div className="card bg-warning text-light">
-                            <div className="card-body text-end">
-                                <div className="card-title">
-                                    <h1>แผนรับ</h1>
-                                    <h5>{data.plan ? data.plan.toLocaleString() : '0'}</h5>
-                                    <p className='text-start text-success'>100%</p>
+                    </div>
+                    <div className="col col-lg-4 col-md-6 col-sm">
+
+                        <div className="row">
+                            <div className="col col-lg-6 col-sm">
+                                <div className="card shadow bg-primary text-light text-center">
+                                    <div className="card-body">
+                                        <h5 className="card-title">แผน</h5>
+                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.plan, 0, ".", ",")} คน</p>
+                                        <p>ร้อยละของแผนรับ</p>
+                                        <p className="card-text">{masterData.percentPlan} %</p>
+                                    </div>
                                 </div>
                             </div>
 
+
+                            <div className="col col-lg-6 col-sm">
+                                <div className="card shadow bg-success text-light text-center">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Cf</h5>
+                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.confirm, 0, ".", ",")} คน</p>
+                                        <p>ร้อยละของแผนรับ</p>
+                                        <p className="card-text">{numberFormat(masterData.percentConfirm, 2, ".", ",")} %</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col col-lg-6 col-sm">
+                                <div className="card shadow bg-warning text-light text-center">
+                                    <div className="card-body">
+                                        <h5 className="card-title">สมัคร</h5>
+                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.applicant, 0, ".", ",")} คน</p>
+                                        <p>ร้อยละของแผนรับ</p>
+                                        <p className="card-text">{numberFormat(masterData.percentApplicant, 2, ".", ",")} %</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col col-lg-6 col-sm">
+                                <div className="card shadow bg-danger text-light text-center">
+                                    <div className="card-body">
+                                        <h5 className="card-title">Stu.i</h5>
+                                        <p className="card-text bg-light text-dark rounded-pill">{numberFormat(masterData.report, 0, ".", ",")} คน</p>
+                                        <p>ร้อยละของแผนรับ</p>
+                                        <p className="card-text">{numberFormat(masterData.percentReport, 2, ".", ",")} %</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+
+
+
                 </div>
             </div>
+
+
         </div>
+
     )
 }
 

@@ -247,7 +247,7 @@ const Chartcomponent = () => {
                 <Link to="/" className='btn btn-primary rounded-pill mx-auto'> <FontAwesomeIcon icon={faHouse} /> {' '}Home</Link>
                 <Link to="/area" className='btn btn-primary rounded-pill mx-auto'><FontAwesomeIcon icon={faChartPie} /> {' '}Area Report</Link>
                 <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'><FontAwesomeIcon icon={faImage} />{' '}Export to JPG</button>
-                <ExportToExcel data={dataTable} />
+                <ExportToExcel data={dataTable} title="pie" />
 
             </nav>
 
@@ -288,18 +288,11 @@ const Chartcomponent = () => {
                         <div className="row">
 
                             <div className="col-lg-8 col-md-12 col-sm column-1">
-                                <DataTable data={dataTable} />
+                                <DataTable data={dataTable} title="pie" />
 
                             </div>
                             <div className="col-lg-4 col-md-12 col-sm column-2">
-                                <div className="row">
-                                    {/* <div className="col d-flex justify-content-around align-item-center">
-                                <h4>Social Share</h4>
-                                <ShareThisPage />
 
-
-                            </div> */}
-                                </div>
                                 <div className="row">
                                     <div className="col-lg-6 col-md">
                                         <div className="card text-center">
