@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 import BarChart from './BarChart';
+// import exportToExcel from './ExportToXls';
+// import ExportToExcel from './ExportToXls';
 
 const Area = () => {
 
@@ -25,7 +27,7 @@ const Area = () => {
             {/* <div className="container mt-3"> */}
             <BarChart data={data} />
             {/* </div> */}
-
+            {/* <ExportToExcel data={data} filename='exported-data' /> */}
 
 
         </div>

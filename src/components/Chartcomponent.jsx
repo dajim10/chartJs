@@ -4,14 +4,15 @@ import DataTable from './DataTable';
 import './Mytable.css';
 import ShareThisPage from './ShareThisPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
-// import Logo from '../assets/LOGO-RUTS-10.png'
+import { faArrowsRotate, faImage, faChartPie, faHouse } from '@fortawesome/free-solid-svg-icons';
+
 import Header from './Header';
 import { Link } from 'react-router-dom'
 
 import html2canvas from 'html2canvas';
 import 'canvas-toBlob';
 import saveAs from 'file-saver';
+import ExportToExcel from './ExportToExcel';
 
 
 
@@ -243,9 +244,10 @@ const Chartcomponent = () => {
 
             <nav className='navbar navbar-extended-sm sticky-top' style={{ backdropFilter: 'blur(5px)' }}>
 
-                <Link to="/" className='btn btn-primary rounded-pill mx-auto'>Home</Link>
-                <Link to="/area" className='btn btn-primary rounded-pill mx-auto'>Area Report</Link>
-                <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'>Export to JPG</button>
+                <Link to="/" className='btn btn-primary rounded-pill mx-auto'> <FontAwesomeIcon icon={faHouse} /> {' '}Home</Link>
+                <Link to="/area" className='btn btn-primary rounded-pill mx-auto'><FontAwesomeIcon icon={faChartPie} /> {' '}Area Report</Link>
+                <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'><FontAwesomeIcon icon={faImage} />{' '}Export to JPG</button>
+                <ExportToExcel data={dataTable} />
 
             </nav>
 

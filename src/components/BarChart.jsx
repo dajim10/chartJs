@@ -4,7 +4,8 @@ import DataTable from './DataTable';
 import './Mytable.css';
 import ShareThisPage from './ShareThisPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faChartPie, faImage, faHouse } from '@fortawesome/free-solid-svg-icons';
+import ExportToExcel from './ExportToExcel';
 import { Link } from 'react-router-dom';
 
 import html2canvas from 'html2canvas';
@@ -96,7 +97,10 @@ const BarChart = ({ data }) => {
                 name: 'Stu.i',
                 data: [data.reportqp, data.reporttech, data.reportqpm6]
 
-            }]
+            }, {
+
+            }
+            ]
 
         });
     }, [data])
@@ -107,9 +111,13 @@ const BarChart = ({ data }) => {
 
             <nav className='navbar navbar-extended-sm sticky-top' style={{ backdropFilter: 'blur(5px)' }}>
 
-                <Link to="/" className='btn btn-primary rounded-pill mx-auto'>Home</Link>
+                {/* <Link to="/" className='btn btn-primary rounded-pill mx-auto'>Home</Link> */}
                 {/* <Link to="/area" className='btn btn-primary rounded-pill mx-auto'>Area Report</Link> */}
-                <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'>Export to JPG</button>
+                {/* <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'>Export to JPG</button> */}
+                <Link to="/" className='btn btn-primary rounded-pill mx-auto'> <FontAwesomeIcon icon={faHouse} /> {' '}Home</Link>
+                <Link to="/area" className='btn btn-primary rounded-pill mx-auto'><FontAwesomeIcon icon={faChartPie} /> {' '}Area Report</Link>
+                <button onClick={handleExportClick} className='btn btn-success rounded-pill shadow mx-auto'><FontAwesomeIcon icon={faImage} />{' '}Export to JPG</button>
+                <ExportToExcel data={campusData} />
 
             </nav>
             <div ref={contentRef} id="export-to-jpg">

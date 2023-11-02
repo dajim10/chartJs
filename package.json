@@ -20,6 +20,7 @@
     "@mui/x-data-grid": "^6.16.1",
     "canvas-toBlob": "^1.0.0",
     "chart.js": "^4.4.0",
+    "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
     "file-server": "^2.2.1",
     "highcharts": "^11.1.0",
@@ -30,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-share": "^4.4.1",
-    "react-table": "^7.8.0"
+    "react-table": "^7.8.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
