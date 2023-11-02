@@ -176,7 +176,7 @@ const BarChart = ({ data }) => {
 
 
                     </div>
-                    <div className="col col-lg-4 col-md-12 col-sm column-1">
+                    <div className="col col-lg-4 col-md-12 col-sm column-2">
 
                         <div className="row">
 
