@@ -8,6 +8,10 @@ import Navbar from './components/Navbar'
 
 import { Routes, Route, Link } from 'react-router-dom'
 import BarChart from './components/BarChart_bk'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // The Bootstrap JavaScript file
+import 'popper.js/dist/umd/popper.min.js'; // Popper.js
+
 
 // import BarChart from './components/PieChart'
 // Test Deployment ******
