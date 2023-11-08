@@ -2,12 +2,10 @@ import React from 'react'
 import Chartcomponent from './components/Chartcomponent'
 import './App.css'
 
-import ExportToJPG from './components/ExportToJpg'
 import Area from './components/Area'
-import Navbar from './components/Navbar'
 
 import { Routes, Route, Link } from 'react-router-dom'
-import BarChart from './components/BarChart_bk'
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // The Bootstrap JavaScript file
 import 'popper.js/dist/umd/popper.min.js'; // Popper.js
