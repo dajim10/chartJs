@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Logo from '../assets/LOGO-RUTS-10.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = ({ counter }) => {
     const currentDate = new Date();
     // Get day, month, and year components
     const day = currentDate.getDate().toString().padStart(2, '0');
@@ -22,6 +24,7 @@ const Header = () => {
                 <div className="text-center">
 
                     <img src={Logo} alt="logo" width={200} id="logo" />
+                    <FontAwesomeIcon icon={faEye} />  {counter}
 
                 </div>
             </div>

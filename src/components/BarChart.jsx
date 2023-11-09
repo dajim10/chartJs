@@ -13,7 +13,7 @@ import 'canvas-toBlob';
 import saveAs from 'file-saver';
 import Header from './Header';
 
-const BarChart = ({ data }) => {
+const BarChart = ({ data, counter }) => {
 
     const [campusData, setCampusData] = useState([]);
     const contentRef = useRef(null);
@@ -152,7 +152,7 @@ const BarChart = ({ data }) => {
 
             </nav>
             <div ref={contentRef} id="export-to-jpg">
-                <Header />
+                <Header counter={counter} />
                 <div id="chart-container">
 
 

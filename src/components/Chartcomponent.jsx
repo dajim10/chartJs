@@ -16,7 +16,8 @@ import ExportToExcel from './ExportToExcel';
 
 
 
-const Chartcomponent = () => {
+
+const Chartcomponent = ({ counter }) => {
     const contentRef = useRef(null);
 
     const handleExportClick = () => {
@@ -257,7 +258,7 @@ const Chartcomponent = () => {
 
             <div className="container mt-2" ref={contentRef} id="export-to-jpg">
                 {/* <button onClick={handleExportClick} className='btn btn-primary rounded-pill shadow m-2'>Export to JPG</button> */}
-                <Header />
+                <Header counter={counter} />
 
 
                 {/* <BarChart /> */}
@@ -276,10 +277,15 @@ const Chartcomponent = () => {
                                     </button>
                                 </li>
 
-                                <li className=" bg-danger rounded-pill p-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
+                                <li className=" bg-danger rounded-pill p-2 m-2" aria-current="page">{nameClicked ? nameClicked : 'ภาพรวมมหาวิทยาลัย'}
                                 </li>
+
+
+                                {/* <li className='bg-secondary rounded-pill p-2'> <FontAwesomeIcon icon={faEye} />  {counter} </li> */}
+
                                 <div className='bg-light rounded-pill text-dark  p-2 ms-auto'>
                                     <ShareThisPage />
+
                                     {/* <ExportToJPG /> */}
                                 </div>
                             </ol>
@@ -331,6 +337,9 @@ const Chartcomponent = () => {
                                                 <p>ร้อยละของแผนรับ</p>
                                                 <p>{masterData.percentReport.toLocaleString('en', { maximumFractionDigits: 2 }) + "%"}</p>
                                             </div>
+                                        </div>
+                                        <div>
+
                                         </div>
                                     </div>
                                 </div>

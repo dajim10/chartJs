@@ -4,7 +4,7 @@ import BarChart from './BarChart';
 // import exportToExcel from './ExportToXls';
 // import ExportToExcel from './ExportToXls';
 
-const Area = () => {
+const Area = ({ counter }) => {
 
     const [data, setData] = useState([]);
     const [campus, setCampus] = useState([]);
@@ -25,7 +25,7 @@ const Area = () => {
     return (
         <div className='container-fluid'>
             {/* <div className="container mt-3"> */}
-            <BarChart data={data} />
+            <BarChart data={data} counter={counter} />
             {/* </div> */}
             {/* <ExportToExcel data={data} filename='exported-data' /> */}
 
