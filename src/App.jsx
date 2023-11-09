@@ -1,30 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Chartcomponent from './components/Chartcomponent'
 import './App.css'
-
-import ExportToJPG from './components/ExportToJpg'
+import ReactGA from 'react-ga'
 import Area from './components/Area'
-import Navbar from './components/Navbar'
+import { Routes, Route } from 'react-router-dom'
 
-import { Routes, Route, Link } from 'react-router-dom'
-import BarChart from './components/BarChart_bk'
 
-// import BarChart from './components/PieChart'
-// Test Deployment ******
+
+ReactGA.initialize('G-VN973D1ZET');
+
 const App = () => {
+
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+        , []);
 
 
     return (
         <>
-            {/* <Navbar /> */}
 
             <div className="container">
                 <div className="col-12 fload-right">
-                    {/* <div className='sticky-top' style={{ backdropFilter: 'blur(5px)' }}> */}
-                    {/* <Link to="/" className='btn btn-primary m-2 rounded-pill'>Home</Link>
-                        <Link to="/area" className='btn btn-primary m-2 rounded-pill'>Area Report</Link> */}
-                    {/* </div> */}
-                    {/* <ExportToJPG /> */}
+
                     <Routes>
                         <Route path="/" element={<Chartcomponent />} />
                         <Route path="/area" element={<Area />} />
