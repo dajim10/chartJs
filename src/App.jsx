@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import Chartcomponent from './components/Chartcomponent'
 import './App.css'
-import ReactGA from 'react-ga'
+
+import ExportToJPG from './components/ExportToJpg'
 import Area from './components/Area'
-import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
-
-
-ReactGA.initialize('G-VN973D1ZET');
+import { Routes, Route, Link } from 'react-router-dom'
+import BarChart from './components/BarChart_bk'
 
 const App = () => {
 
