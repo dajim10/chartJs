@@ -50,7 +50,7 @@ const App = () => {
             // console.log('not have cookie');
             // set cookie timeout
             let d = new Date();
-            d.setTime(d.getTime() + (3 * 60 * 1000));
+            d.setTime(d.getTime() + (5 * 60 * 1000));
             let expires = "expires=" + d.toUTCString();
             document.cookie = `ars=1;${expires};path=/`;
             counterStart();
