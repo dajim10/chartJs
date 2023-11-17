@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBackward, faCaretLeft, faForward, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 function DataTable({ data, title }) {
+
+
     const columns = React.useMemo(
         () => [
+
             {
-                Header: () => (<div className='text-end'>คณะ</div>),
+
+                Header: () => (<div className={`$title ==='pie' d-none`}>คณะ</div>),
                 accessor: 'facultyID',
                 Cell: ({ cell: { value } }) => {
                     return (
@@ -15,6 +19,8 @@ function DataTable({ data, title }) {
                     )
                 }
             },
+
+
             {
                 Header: () => (<div className="text-center">หลักสูตร</div>),
                 accessor: 'name',
