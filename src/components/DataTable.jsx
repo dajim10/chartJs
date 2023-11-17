@@ -18,6 +18,11 @@ function DataTable({ data, title }) {
             {
                 Header: () => (<div className="text-center">หลักสูตร</div>),
                 accessor: 'name',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div className="special-column">{value}</div>
+                    )
+                }
             },
             {
                 Header: () => (<div className="text-end">แผนรับ</div>),
@@ -89,7 +94,7 @@ function DataTable({ data, title }) {
 
 
     return (
-        <div className='container'>
+        <div className='container-fluid'>
             <table className="table table-striped" {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (

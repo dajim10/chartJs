@@ -62,7 +62,7 @@ const App = () => {
     return (
         <>
 
-            <div className="container">
+            <div className="container-fluid">
                 <div className="col-12 fload-right">
 
                     <Routes>

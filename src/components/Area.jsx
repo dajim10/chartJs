@@ -29,7 +29,6 @@ const Area = ({ counter }) => {
             {/* </div> */}
             {/* <ExportToExcel data={data} filename='exported-data' /> */}
 
-
         </div>
     )
 }
