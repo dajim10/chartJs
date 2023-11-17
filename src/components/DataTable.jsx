@@ -7,6 +7,15 @@ function DataTable({ data, title }) {
     const columns = React.useMemo(
         () => [
             {
+                Header: () => (<div className='text-end'>รหัสคณะ</div>),
+                accessor: 'facultyID',
+                Cell: ({ cell: { value } }) => {
+                    return (
+                        <div style={{ textAlign: 'center' }}>{value}</div>
+                    )
+                }
+            },
+            {
                 Header: () => (<div className="text-center">หลักสูตร</div>),
                 accessor: 'name',
             },
