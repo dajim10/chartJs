@@ -7,7 +7,7 @@ function DataTable({ data, title }) {
     const columns = React.useMemo(
         () => [
             {
-                Header: () => (<div className='text-end'>รหัสคณะ</div>),
+                Header: () => (<div className='text-end'>คณะ</div>),
                 accessor: 'facultyID',
                 Cell: ({ cell: { value } }) => {
                     return (
