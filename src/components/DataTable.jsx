@@ -11,7 +11,7 @@ function DataTable({ data, title }) {
 
             {
 
-                Header: () => (<div className={`$title ==='pie' d-none`}>คณะ</div>),
+                Header: () => (<div className='text-end'>{title && 'คณะ'}</div>),
                 accessor: 'facultyID',
                 Cell: ({ cell: { value } }) => {
                     return (
