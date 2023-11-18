@@ -22,7 +22,7 @@ function DataTable({ data, title }) {
 
 
             {
-                Header: () => (<div className="text-center">หลักสูตร</div>),
+                Header: () => (<div className="text-center">{title ? 'หลักสูตร' : 'วิทยาเขต'}</div>),
                 accessor: 'name',
                 Cell: ({ cell: { value } }) => {
                     return (
