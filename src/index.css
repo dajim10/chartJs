@@ -17,6 +17,14 @@ body {
   .breadcrumb {
     font-size: 12px;
   }
+  
+  .navbar {
+    display:none;
+   }
+ 
+   .navbar-mobile {  
+     display:block;
+   }
 }
 
 

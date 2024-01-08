@@ -34,7 +34,7 @@ const Chartcomponent = ({ counter }) => {
 
     // Get day, month, and year components
     const day = currentDate.getDate().toString().padStart(2, '0');
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+    const month = (currentDate.getMonth()).toString().padStart(2, '0'); // Months are 0-based
     const year = currentDate.getFullYear();
     const time = currentDate.toLocaleTimeString();
 
