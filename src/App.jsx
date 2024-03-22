@@ -10,22 +10,13 @@ import Area from './components/Area'
 
 import { Routes, Route, Link } from 'react-router-dom'
 import BarChart from './components/BarChart_bk'
+// import LoginForm from './components/Login'
 const App = () => {
 
     const [counter, setCounter] = useState(0);
     const [cookie, setCookie] = useState('');
 
 
-
-    // if (cookie === '') {
-    //     setCookie(document.cookie);
-    //     // set cookie timeout
-    //     let d = new Date();
-    //     d.setTime(d.getTime() + (60 * 1000));
-    //     let expires = "expires=" + d.toUTCString();
-    //     document.cookie = `ars=1;${expires};path=/`;
-
-    // }
 
     useEffect(() => {
 
@@ -67,6 +58,7 @@ const App = () => {
 
                     <Routes>
                         <Route path="/" element={<Chartcomponent counter={counter} />} />
+                        {/* <Route path="/login" element={<LoginForm />} /> */}
                         <Route path="/area" element={<Area counter={counter} />} />
                     </Routes>
                 </div>

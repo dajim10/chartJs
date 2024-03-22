@@ -12,10 +12,10 @@ import Logo from '../assets/LOGO-RUTS-10.png'
 const BarChart = () => {
 
 
-   
+
 
     // Combine the components to form the date string
-    
+
     const [chartData, setChartData] = useState([]);
     const [facultyID, setFacultyID] = useState('');
     const [dataTable, setDataTable] = useState([]);
@@ -63,7 +63,7 @@ const BarChart = () => {
 
     useEffect(() => {
 
-        fetch('https://ars.rmutsv.ac.th/json')
+        fetch('https://api.rmutsv.ac.th/ars/export')
             .then(response => response.json())
             .then(data => {
                 setMasterData({
@@ -99,12 +99,12 @@ const BarChart = () => {
         // Function to fetch data
         const fetchData = () => {
             if (!facultyID) {
-                fetch(`https://ars.rmutsv.ac.th/json/`)
+                fetch(`https://api.rmutsv.ac.th/ars/export`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
             } else {
-                fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+                fetch(`https://api.rmutsv.ac.th/ars/faculty/${facultyID}`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
@@ -217,7 +217,7 @@ const BarChart = () => {
 
     return (
         <div className="container mt-2">
-           
+
             <div className="row">
                 <div className="col">
                     {/* <ExportToJPG /> */}

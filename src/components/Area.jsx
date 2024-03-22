@@ -11,7 +11,7 @@ const Area = ({ counter }) => {
 
 
     useEffect(() => {
-        fetch('https://ars.rmutsv.ac.th/json')
+        fetch('https://api.rmutsv.ac.th/ars/export')
             .then(response => response.json())
             .then(data => {
                 setData(data.university)

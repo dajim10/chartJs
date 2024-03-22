@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 import 'canvas-toBlob';
 import saveAs from 'file-saver';
 import ExportToExcel from './ExportToExcel';
-
+import { Swal } from 'sweetalert2';
 
 
 
@@ -64,6 +64,29 @@ const Chartcomponent = ({ counter }) => {
     const [isMobile, setIsMobile] = useState(true);
 
 
+    // useEffect(() => {
+
+    //     const token = localStorage.getItem('token');
+    //     const type = localStorage.getItem('type');
+    //     if (!token) {
+    //         window.location.href = '/login';
+    //     }
+    //     if (type !== 'staff') {
+    //         Swal.fire({
+    //             title: 'ไม่มีสิทธิ์เข้าใช้งาน',
+    //             text: 'Error username or password',
+    //             icon: 'error',
+    //             confirmButtonText: 'OK',
+    //             timer: 2000
+    //         })
+
+    //         window.location.href = '/login';
+    //     }
+    // }, []);
+
+
+
+
     useEffect(() => {
         const handleResize = () => {
             const newWidth = window.innerWidth;
@@ -90,7 +113,7 @@ const Chartcomponent = ({ counter }) => {
 
     useEffect(() => {
 
-        fetch('https://ars.rmutsv.ac.th/json')
+        fetch('https://api.rmutsv.ac.th/ars/export')
             .then(response => response.json())
             .then(data => {
                 setMasterData({
@@ -117,12 +140,12 @@ const Chartcomponent = ({ counter }) => {
         // Function to fetch data
         const fetchData = () => {
             if (!facultyID) {
-                fetch(`https://ars.rmutsv.ac.th/json/`)
+                fetch(`https://api.rmutsv.ac.th/ars/export`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
             } else {
-                fetch(`https://ars.rmutsv.ac.th/json/faculty/${facultyID}`)
+                fetch(`https://api.rmutsv.ac.th/ars/faculty/${facultyID}`)
                     .then(response => response.json())
                     .then(data => setDataTable(data.program))
                     .catch(error => console.log(error))
